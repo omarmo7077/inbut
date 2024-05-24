@@ -1,5 +1,7 @@
 <!DOCTYPE html>
-<html>
+
+<!-- // -->
+<html lang="en" class="hydrated">
 
 <head>
     <style>
@@ -301,8 +303,8 @@
             color: black;
             background-color: white;
             border: 1px solid rgba(255, 255, 255, 0);
-            padding: 10px 10px;
-            border-radius: 10px;
+            padding: 0px 5px;
+            border-radius: 4px;
             box-shadow: 2px 2px 5px 1px rgb(142 142 142 / 50%);
             margin: 5px;
 
@@ -357,86 +359,110 @@
     </style>
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.9.1/font/bootstrap-icons.min.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+
+    <!-- <link rel="stylesheet" href="./assets/css/style.css"> -->
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> -->
+
+    <!-- 
+    - google font link
+  -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&amp;family=Roboto:wght@400;500;700&amp;display=swap"
+        rel="stylesheet">
+
+
+
+    <!-- 
+    - preload banner
+  -->
+    <!-- <link rel="preload" href="./assets/images/hero-banner.png" as="image">  -->
+
+
 </head>
 
-<body>
+<body id="top">
+    <main>
+        <div class="formbold-form-wrapper">
+            <img src="./assets/images/logo.svg">
+            <!-- <form action="https://formbold.com/s/FORM_ID" method="POST"> -->
+            <div class="formbold-input-group">
+                <label for="name" class="formbold-form-label"> product-title </label>
+                <input type="text" name="name" id="producttitle" placeholder="Enter your product title"
+                    class="formbold-form-input shadow" />
+            </div>
+            <div class="formbold-input-group">
+                <label for="name" class="formbold-form-label"> brand-name </label>
+                <input type="text" name="name" id="brandname" placeholder="Enter your brand name"
+                    class="formbold-form-input shadow" />
+            </div>
+            <div class="formbold-input-group">
+                <div class="flex center align-items">
+                    <div class="formbold-input-group m-LR-2" style="width: 40%;">
+                        <label for="name" class="formbold-form-label"> Price </label>
+                        <input type="text" name="name" id="productprice" placeholder="EGP"
+                            class="formbold-form-input shadow" />
+                    </div>
+                    <div class="formbold-input-group m-LR-2" style="width: 40%;">
+                        <label for="name" class="formbold-form-label"> Sale</label>
+                        <input type="text" name="name" id="sale-amount" placeholder="%"
+                            class="formbold-form-input shadow" />
+                    </div>
+                    <div class="formbold-input-group m-LR-2" style="width: 40%;">
+                        <label for="category" class="formbold-form-label">Category</label>
+                        <select style="height: 49px;" name="category" id="category" class="formbold-form-input shadow">
+                            <option value="men">Men</option>
+                            <option value="women">Women</option>
+                            <option value="kids">Kids</option>
+                        </select>
+                    </div>
+                </div>
 
-    <!-- Author: FormBold Team -->
-    <!-- Learn More: https://formbold.com -->
-    <div class="formbold-form-wrapper">
-        <img src="./assets/images/logo.svg">
-        <!-- <form action="https://formbold.com/s/FORM_ID" method="POST"> -->
-        <div class="formbold-input-group">
-            <label for="name" class="formbold-form-label"> product-title </label>
-            <input type="text" name="name" id="producttitle" placeholder="Enter your product title"
-                class="formbold-form-input shadow" />
-        </div>
-        <div class="formbold-input-group">
-            <label for="name" class="formbold-form-label"> brand-name </label>
-            <input type="text" name="name" id="brandname" placeholder="Enter your brand name"
-                class="formbold-form-input shadow" />
-        </div>
-        <div class="formbold-input-group">
-            <div class="flex center">
-                <div class="formbold-input-group m-LR-2" style="width: 40%;">
-                    <label for="name" class="formbold-form-label"> product-price </label>
-                    <input type="text" name="name" id="productprice" placeholder="EGP"
-                        class="formbold-form-input shadow" />
+
+            </div>
+            <div class="formbold-input-group">
+                <label for="message" class="formbold-form-label">
+                    product description
+                </label>
+                <textarea rows="6" name="message" id="productdescription" placeholder="Type product description here..."
+                    class="formbold-form-input shadow"></textarea>
+            </div>
+            <div class="formbold-input-group">
+                <div class="flex center  align-items shadow p5 mb-20">
+                    <label for="name" class="formbold-form-label" style="margin-bottom:0 !important;"> Add Products
+                    </label>
+                    <button class="formbold-form-label point addbtn" id="add-more">
+                        <i class="bi bi-plus-square"></i>
+                    </button>
                 </div>
-                <div class="formbold-input-group m-LR-2" style="width: 40%;">
-                    <label for="name" class="formbold-form-label"> sale-amount </label>
-                    <input type="text" name="name" id="sale-amount" placeholder="%"
-                        class="formbold-form-input shadow" />
-                </div>
-                <div class="formbold-input-group m-LR-2" style="width: 40%;">
-                    <label for="category" class="formbold-form-label">Category</label>
-                    <select name="category" id="category" class="formbold-form-input shadow">
-                        <option value="men">Men</option>
-                        <option value="women">Women</option>
-                        <option value="kids">Kids</option>
-                    </select>
+
+                <div id="input-container">
+
+
+
+
                 </div>
             </div>
 
 
-        </div>
-        <div class="formbold-input-group">
-            <label for="message" class="formbold-form-label">
-                product description
-            </label>
-            <textarea rows="6" name="message" id="productdescription" placeholder="Type product description here..."
-                class="formbold-form-input shadow"></textarea>
-        </div>
-        <div class="formbold-input-group">
-            <div class="flex center  align-items shadow p5 mb-20">
-                <label for="name" class="formbold-form-label" style="margin-bottom:0 !important;"> Add Products </label>
-                <button class="formbold-form-label point addbtn" id="add-more">
-                    <i class="bi bi-plus-square"></i>
-                </button>
-            </div>
+            <script>
+                let count = 0;
 
-            <div id="input-container">
+                document.getElementById('add-more').addEventListener('click', function () {
+                    count++;
+                    const inputContainer = document.getElementById('input-container');
 
 
+                    const newInputSet = document.createElement('div');
+                    newInputSet.classList.add('flex', 'center', 'input-set', 'mb-3', 'flex-wrap', 'mb-30', 'add-product-cart', 'product-record', 'shadow');
+                    newInputSet.id = `p${count}`;
 
-
-            </div>
-        </div>
-
-
-        <script>
-            let count = 0;
-
-            document.getElementById('add-more').addEventListener('click', function () {
-                count++;
-                const inputContainer = document.getElementById('input-container');
-
-
-                const newInputSet = document.createElement('div');
-                newInputSet.classList.add('flex', 'center', 'input-set', 'mb-3', 'flex-wrap', 'mb-30', 'add-product-cart', 'product-record', 'shadow');
-                newInputSet.id = `p${count}`;
-
-                newInputSet.innerHTML = `
+                    newInputSet.innerHTML = `
                 <div class="i-div">
                     <button style="padding: 3px 10px; margin: 0px; border: none; border-radius: 50px;" class="formbold-form-label point toggle-expand no-bg-i">
                         <i class="bi bi-arrows-angle-contract no-bg-i"></i>
@@ -464,7 +490,7 @@
                     <div class="flex mb-3">
                         <input id="size" type="text" name="" placeholder="Size" class="formbold-form-input m-LR-2" />
                         <div class="color-input-wrapper m-LR-2">
-                            <div class="flex align-items">
+                            <div class="flex center align-items">
                                 <input style="width:45px;" type="text" name="" class="formbold-form-input" />
                                 <input  id="Color" type="color" class="color-picker">
                             </div>
@@ -478,113 +504,113 @@
                 </div>
             `;
 
-                inputContainer.appendChild(newInputSet);
-                setupToggleExpand(newInputSet.querySelector('.toggle-expand'));
-            });
+                    inputContainer.appendChild(newInputSet);
+                    setupToggleExpand(newInputSet.querySelector('.toggle-expand'));
+                });
 
-            function setupToggleExpand(button) {
-                button.addEventListener('click', function () {
-
-
-
-                    const expandIcon = button.querySelector('.bi-arrows-angle-expand');
-                    const contractIcon = button.querySelector('.bi-arrows-angle-contract');
-                    const productData = button.closest('.input-set').querySelector('#product-data');
-                    const sizeLabel = button.closest('.i-div').querySelector('#size');
-                    // const colorLabel = button.closest('.i-div').querySelector('#Color');
-                    const QtyLabel = button.closest('.i-div').querySelector('#Quantity');
-                    const ColorcircleLabel = button.closest('.i-div').querySelector('#Colorcircle');
-                    const sizevalue = button.closest('.i-div').querySelector('#sizevalue');
-                    const colorvalue = button.closest('.i-div').querySelector('#colorvalue');
-                    const Qtyvalue = button.closest('.i-div').querySelector('#QuantityValue');
+                function setupToggleExpand(button) {
+                    button.addEventListener('click', function () {
 
 
 
-                    // Get div id 
-                    const productRecord = button.closest('.product-record');
-                    const id = productRecord ? productRecord.id : null;
-
-
-                    if (id) {
-                        // Get the input fields inside the product-record div with the retrieved id
-                        const productDiv = document.getElementById(id);
-                        const sizeInput = productDiv.querySelector('input#size');
-                        const colorInput = productDiv.querySelector('input#Color');
-                        const quantityInput = productDiv.querySelector('input#quantity');
-                        const ColorcircleLabel = productDiv.querySelector('label#Colorcircle'); // Corrected to label
-
+                        const expandIcon = button.querySelector('.bi-arrows-angle-expand');
+                        const contractIcon = button.querySelector('.bi-arrows-angle-contract');
+                        const productData = button.closest('.input-set').querySelector('#product-data');
+                        const sizeLabel = button.closest('.i-div').querySelector('#size');
+                        // const colorLabel = button.closest('.i-div').querySelector('#Color');
+                        const QtyLabel = button.closest('.i-div').querySelector('#Quantity');
+                        const ColorcircleLabel = button.closest('.i-div').querySelector('#Colorcircle');
+                        const sizevalue = button.closest('.i-div').querySelector('#sizevalue');
+                        const colorvalue = button.closest('.i-div').querySelector('#colorvalue');
+                        const Qtyvalue = button.closest('.i-div').querySelector('#QuantityValue');
 
 
 
-                        // Get the values from the input fields
-                        const size = sizeInput ? sizeInput.value : '';
-                        const color = colorInput ? colorInput.value : '';
-                        const Qty = quantityInput ? quantityInput.value : '';
+                        // Get div id 
+                        const productRecord = button.closest('.product-record');
+                        const id = productRecord ? productRecord.id : null;
 
 
-                        if (ColorcircleLabel) {
-                            // Change the background color of the circle
-                            ColorcircleLabel.style.backgroundColor = color; // Change to your desired color
+                        if (id) {
+                            // Get the input fields inside the product-record div with the retrieved id
+                            const productDiv = document.getElementById(id);
+                            const sizeInput = productDiv.querySelector('input#size');
+                            const colorInput = productDiv.querySelector('input#Color');
+                            const quantityInput = productDiv.querySelector('input#quantity');
+                            const ColorcircleLabel = productDiv.querySelector('label#Colorcircle'); // Corrected to label
+
+
+
+
+                            // Get the values from the input fields
+                            const size = sizeInput ? sizeInput.value : '';
+                            const color = colorInput ? colorInput.value : '';
+                            const Qty = quantityInput ? quantityInput.value : '';
+
+
+                            if (ColorcircleLabel) {
+                                // Change the background color of the circle
+                                ColorcircleLabel.style.backgroundColor = color; // Change to your desired color
+                            }
+
+                            // // Log the values to the console
+                            // console.log('Size:', size);
+                            // console.log('Color:', color);
+                            // console.log('quantity:', Qty);
+
+
+                            // Assign the values to the respective elements
+                            sizevalue.innerText = size;
+                            colorvalue.innerText = color;
+                            Qtyvalue.innerText = Qty;
+                            // Set the color of the ColorcircleLabel
+
                         }
 
-                        // // Log the values to the console
-                        // console.log('Size:', size);
-                        // console.log('Color:', color);
-                        // console.log('quantity:', Qty);
 
-
-                        // Assign the values to the respective elements
-                        sizevalue.innerText = size;
-                        colorvalue.innerText = color;
-                        Qtyvalue.innerText = Qty;
-                        // Set the color of the ColorcircleLabel
-
-                    }
-
-
-                    //get size and color values from
+                        //get size and color values from
 
 
 
-                    if (expandIcon.classList.contains('none')) {
-                        expandIcon.classList.remove('none');
-                        contractIcon.classList.add('none');
-                        productData.classList.add('none');
-                        sizeLabel.classList.remove('none');
-                        // colorLabel.classList.remove('none');
-                        ColorcircleLabel.classList.remove('none');
-                        QtyLabel.classList.remove('none');
-                        sizevalue.classList.remove('none');
-                        colorvalue.classList.remove('none');
-                        Qtyvalue.classList.remove('none');
+                        if (expandIcon.classList.contains('none')) {
+                            expandIcon.classList.remove('none');
+                            contractIcon.classList.add('none');
+                            productData.classList.add('none');
+                            sizeLabel.classList.remove('none');
+                            // colorLabel.classList.remove('none');
+                            ColorcircleLabel.classList.remove('none');
+                            QtyLabel.classList.remove('none');
+                            sizevalue.classList.remove('none');
+                            colorvalue.classList.remove('none');
+                            Qtyvalue.classList.remove('none');
 
 
-                    } else {
-                        expandIcon.classList.add('none');
-                        contractIcon.classList.remove('none');
-                        productData.classList.remove('none');
-                        sizeLabel.classList.add('none');
-                        // colorLabel.classList.add('none');
-                        QtyLabel.classList.add('none');
-                        ColorcircleLabel.classList.add('none');
-                        sizevalue.classList.add('none');
-                        colorvalue.classList.add('none');
-                        Qtyvalue.classList.add('none');
+                        } else {
+                            expandIcon.classList.add('none');
+                            contractIcon.classList.remove('none');
+                            productData.classList.remove('none');
+                            sizeLabel.classList.add('none');
+                            // colorLabel.classList.add('none');
+                            QtyLabel.classList.add('none');
+                            ColorcircleLabel.classList.add('none');
+                            sizevalue.classList.add('none');
+                            colorvalue.classList.add('none');
+                            Qtyvalue.classList.add('none');
 
-                    }
+                        }
+                    });
+                }
+
+                document.querySelectorAll('.toggle-expand').forEach(button => {
+                    setupToggleExpand(button);
                 });
-            }
+            </script>
 
-            document.querySelectorAll('.toggle-expand').forEach(button => {
-                setupToggleExpand(button);
-            });
-        </script>
-
-        <button class="formbold-btn">Submit</button>
-        </form>
-    </div>
-    </div>
-
+            <button class="formbold-btn">Submit</button>
+            </form>
+        </div>
+        </div>
+    </main>
 </body>
 
 </html>
