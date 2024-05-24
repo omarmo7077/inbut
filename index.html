@@ -191,6 +191,12 @@
             align-items: center;
         }
 
+        @media (max-width: 991px) {
+            .color-value {
+                display: none !important;
+
+            }
+        }
 
         .m-LR-2 {
             margin-left: 2px;
@@ -293,6 +299,7 @@
             /* Background color of the circle */
             border-radius: 50%;
             /* Make it circular */
+            border: 1px solid gray
         }
 
         .mr-3 {
@@ -345,6 +352,13 @@
 
         }
 
+        /* Custom styles for SweetAlert2 popups */
+        .swal2-custom {
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-style: italic;
+        }
+
+
         textarea.formbold-form-input {
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
             font-style: italic;
@@ -355,6 +369,14 @@
             font-style: italic;
             font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 
+        }
+
+        .end {
+            justify-content: end !important;
+        }
+
+        .ml-auto {
+            margin-left: auto;
         }
     </style>
     <link rel="stylesheet"
@@ -375,7 +397,8 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600;700&amp;family=Roboto:wght@400;500;700&amp;display=swap"
         rel="stylesheet">
-
+    <!-- //sweetalert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
     <!-- 
@@ -392,12 +415,12 @@
             <img src="./assets/images/logo.svg">
             <!-- <form action="https://formbold.com/s/FORM_ID" method="POST"> -->
             <div class="formbold-input-group">
-                <label for="name" class="formbold-form-label"> product-title </label>
+                <label for="name" class="formbold-form-label"> Product-Title </label>
                 <input type="text" name="name" id="producttitle" placeholder="Enter your product title"
                     class="formbold-form-input shadow" />
             </div>
             <div class="formbold-input-group">
-                <label for="name" class="formbold-form-label"> brand-name </label>
+                <label for="name" class="formbold-form-label"> Brand-Name </label>
                 <input type="text" name="name" id="brandname" placeholder="Enter your brand name"
                     class="formbold-form-input shadow" />
             </div>
@@ -427,7 +450,7 @@
             </div>
             <div class="formbold-input-group">
                 <label for="message" class="formbold-form-label">
-                    product description
+                    Product Description
                 </label>
                 <textarea rows="6" name="message" id="productdescription" placeholder="Type product description here..."
                     class="formbold-form-input shadow"></textarea>
@@ -457,152 +480,161 @@
                     count++;
                     const inputContainer = document.getElementById('input-container');
 
-
                     const newInputSet = document.createElement('div');
                     newInputSet.classList.add('flex', 'center', 'input-set', 'mb-3', 'flex-wrap', 'mb-30', 'add-product-cart', 'product-record', 'shadow');
                     newInputSet.id = `p${count}`;
 
                     newInputSet.innerHTML = `
-                <div class="i-div">
-                    <button style="padding: 3px 10px; margin: 0px; border: none; border-radius: 50px;" class="formbold-form-label point toggle-expand no-bg-i">
-                        <i class="bi bi-arrows-angle-contract no-bg-i"></i>
-                        <i class="bi bi-arrows-angle-expand none no-bg-i"></i>
-                    </button>
-                    <div class="flex center">
-                    <h5 class="none mr-3" id="Quantity">Quantity</h5>
-                    <h5 class="none" id="QuantityValue"></h5>
-
-                </div>
-                    <div class="flex center">
-                    <h5 class="none mr-3" id="size">Size</h5>
-                    <h5 class="none" id="sizevalue"></h5>
-
-                </div>
-                <div class="flex center align-items">
-                    <label class="circle none mr-3" id="Colorcircle"></label>
-                    <h5 class="none" id="colorvalue"></h5>
-
-                </div>
-               
-                
-                </div>
-                <div class="product-data" id="product-data">
-                    <div class="flex mb-3">
-                        <input id="size" type="text" name="" placeholder="Size" class="formbold-form-input m-LR-2" />
-                        <div class="color-input-wrapper m-LR-2">
-                            <div class="flex center align-items">
-                                <input style="width:45px;" type="text" name="" class="formbold-form-input" />
-                                <input  id="Color" type="color" class="color-picker">
+                            <div class="i-div align-items">
+                                <button style="padding: 3px 10px; margin: 0px; border: none; border-radius: 50px;" class="formbold-form-label point toggle-expand no-bg-i">
+                                    <i class="bi bi-arrows-angle-contract no-bg-i"></i>
+                                    <i class="bi bi-arrows-angle-expand none no-bg-i"></i>
+                                </button>
+                                <button style="padding: 3px 10px;border: none; border-radius: 50px;" class=" point no-bg-i toggle-delete ml-auto">
+                                    <i class="bi bi-x-lg"></i>
+                                </button>
+                                <div class="flex center align-items ml-auto">
+                                    <h5 class="none mr-3" id="Quantity">Quantity</h5>
+                                    <h5 class="none" id="QuantityValue"></h5>
+                                </div>
+                                <div class="flex center align-items ml-auto">
+                                    <h5 class="none mr-3" id="size">Size</h5>
+                                    <h5 class="none" id="sizevalue"></h5>
+                                </div>
+                                <div class="flex center align-items ml-auto">
+                                    <label class="circle none mr-3" id="Colorcircle"></label>
+                                    <h5 class="none color-value" id="colorvalue"></h5>
+                                </div>
                             </div>
-                        </div>
-                        <input id="quantity" type="text" name="" placeholder="Quantity" class="formbold-form-input m-LR-2" />
-                    </div>
-                    <div class="flex mb-3">
-                        <input type="text" name="Url1[]" placeholder="pic Url 1" class="formbold-form-input m-LR-2" />
-                        <input type="text" name="Url2[]" placeholder="pic Url 2" class="formbold-form-input m-LR-2" />
-                    </div>
-                </div>
-            `;
+                            <div class="product-data" id="product-data">
+                                <div class="flex mb-3">
+                                    <input id="size" type="text" name="" placeholder="Size" class="formbold-form-input m-LR-2" />
+                                    <div class="color-input-wrapper m-LR-2">
+                                        <div class="flex center align-items">
+                                            <input style="width:45px;" type="text" name="" class="formbold-form-input" />
+                                            <input id="Color" type="color" class="color-picker">
+                                        </div>
+                                    </div>
+                                    <input id="quantity" type="text" name="" placeholder="Quantity" class="formbold-form-input m-LR-2" />
+                                </div>
+                                <div class="flex mb-3">
+                                    <input type="text" name="Url1[]" placeholder="pic Url 1" class="formbold-form-input m-LR-2" />
+                                    <input type="text" name="Url2[]" placeholder="pic Url 2" class="formbold-form-input m-LR-2" />
+                                </div>
+                            </div>
+                        `;
 
                     inputContainer.appendChild(newInputSet);
                     setupToggleExpand(newInputSet.querySelector('.toggle-expand'));
+                    setupDeleteButton(newInputSet.querySelector('.toggle-delete'));
                 });
 
                 function setupToggleExpand(button) {
                     button.addEventListener('click', function () {
-
-
-
                         const expandIcon = button.querySelector('.bi-arrows-angle-expand');
                         const contractIcon = button.querySelector('.bi-arrows-angle-contract');
                         const productData = button.closest('.input-set').querySelector('#product-data');
                         const sizeLabel = button.closest('.i-div').querySelector('#size');
-                        // const colorLabel = button.closest('.i-div').querySelector('#Color');
                         const QtyLabel = button.closest('.i-div').querySelector('#Quantity');
                         const ColorcircleLabel = button.closest('.i-div').querySelector('#Colorcircle');
                         const sizevalue = button.closest('.i-div').querySelector('#sizevalue');
                         const colorvalue = button.closest('.i-div').querySelector('#colorvalue');
                         const Qtyvalue = button.closest('.i-div').querySelector('#QuantityValue');
 
-
-
-                        // Get div id 
                         const productRecord = button.closest('.product-record');
                         const id = productRecord ? productRecord.id : null;
 
-
                         if (id) {
-                            // Get the input fields inside the product-record div with the retrieved id
                             const productDiv = document.getElementById(id);
                             const sizeInput = productDiv.querySelector('input#size');
                             const colorInput = productDiv.querySelector('input#Color');
                             const quantityInput = productDiv.querySelector('input#quantity');
-                            const ColorcircleLabel = productDiv.querySelector('label#Colorcircle'); // Corrected to label
+                            const ColorcircleLabel = productDiv.querySelector('label#Colorcircle');
 
-
-
-
-                            // Get the values from the input fields
                             const size = sizeInput ? sizeInput.value : '';
                             const color = colorInput ? colorInput.value : '';
                             const Qty = quantityInput ? quantityInput.value : '';
 
-
                             if (ColorcircleLabel) {
-                                // Change the background color of the circle
-                                ColorcircleLabel.style.backgroundColor = color; // Change to your desired color
+                                ColorcircleLabel.style.backgroundColor = color;
                             }
 
-                            // // Log the values to the console
-                            // console.log('Size:', size);
-                            // console.log('Color:', color);
-                            // console.log('quantity:', Qty);
-
-
-                            // Assign the values to the respective elements
                             sizevalue.innerText = size;
                             colorvalue.innerText = color;
                             Qtyvalue.innerText = Qty;
-                            // Set the color of the ColorcircleLabel
-
                         }
-
-
-                        //get size and color values from
-
-
 
                         if (expandIcon.classList.contains('none')) {
                             expandIcon.classList.remove('none');
                             contractIcon.classList.add('none');
                             productData.classList.add('none');
                             sizeLabel.classList.remove('none');
-                            // colorLabel.classList.remove('none');
                             ColorcircleLabel.classList.remove('none');
                             QtyLabel.classList.remove('none');
                             sizevalue.classList.remove('none');
                             colorvalue.classList.remove('none');
                             Qtyvalue.classList.remove('none');
-
-
                         } else {
                             expandIcon.classList.add('none');
                             contractIcon.classList.remove('none');
                             productData.classList.remove('none');
                             sizeLabel.classList.add('none');
-                            // colorLabel.classList.add('none');
-                            QtyLabel.classList.add('none');
                             ColorcircleLabel.classList.add('none');
+                            QtyLabel.classList.add('none');
                             sizevalue.classList.add('none');
                             colorvalue.classList.add('none');
                             Qtyvalue.classList.add('none');
-
                         }
                     });
                 }
 
+                function setupDeleteButton(button) {
+                    button.addEventListener('click', function () {
+                        const productRecord = button.closest('.product-record');
+                        const id = productRecord ? productRecord.id : null;
+
+                        if (id) {
+                            Swal.fire({
+                                title: 'Are you sure?',
+                                text: "Do you want to delete this item?",
+                                icon: 'warning',
+                                showCancelButton: true,
+                                confirmButtonText: 'Yes, delete it!',
+                                cancelButtonText: 'No, keep it',
+                                customClass: {
+
+                                    title: 'swal2-custom',
+                                    htmlContainer: 'swal2-custom',
+                                    confirmButton: 'swal2-custom',
+                                    cancelButton: 'swal2-custom',
+                                }
+                            }).then((result) => {
+                                if (result.isConfirmed) {
+                                    document.getElementById(id).remove();
+                                    Swal.fire({
+                                        title: 'Deleted!',
+                                        text: 'Your item has been deleted.',
+                                        icon: 'success',
+                                        customClass: {
+                                            container: 'swal2-custom',
+                                            title: 'swal2-custom',
+                                            htmlContainer: 'swal2-custom',
+                                            confirmButton: 'swal2-custom',
+                                        }
+                                    });
+                                }
+                            });
+                        }
+                    });
+                }
+
+
                 document.querySelectorAll('.toggle-expand').forEach(button => {
                     setupToggleExpand(button);
+                });
+
+                document.querySelectorAll('.toggle-delete').forEach(button => {
+                    setupDeleteButton(button);
                 });
             </script>
 
