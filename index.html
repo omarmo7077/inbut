@@ -378,6 +378,16 @@
         .ml-auto {
             margin-left: auto;
         }
+
+        .cus-btn {
+            height: 30px;
+            padding: 2px 5px;
+            color: black;
+            background-color: white;
+            margin-left: auto;
+            border-radius: 4px;
+            box-shadow: 2px 2px 5px 1px rgb(142 142 142 / 50%);
+        }
     </style>
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.9.1/font/bootstrap-icons.min.css">
@@ -489,11 +499,11 @@
 
                     newInputSet.innerHTML = `
                             <div class="i-div align-items">
-                                <button style="padding: 3px 10px; margin: 0px; border: none; border-radius: 50px;" class="formbold-form-label point toggle-expand no-bg-i">
+                                <button style="border: none; margin-left:5px;margin-bottom: 0px;" class="formbold-form-label point toggle-expand no-bg-i cus-btn ">
                                     <i class="bi bi-arrows-angle-contract no-bg-i"></i>
                                     <i class="bi bi-arrows-angle-expand none no-bg-i"></i>
                                 </button>
-                                <button style="padding: 3px 10px;border: none; border-radius: 50px;" class=" point no-bg-i toggle-delete ml-auto">
+                                <button style="border: none; margin-left:auto" class=" point no-bg-i toggle-delete ml-auto cus-btn ">
                                     <i class="bi bi-x-lg"></i>
                                 </button>
                                 <div class="flex center align-items ml-auto">
